@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+  {% with messages = get_flashed_messages(with_categories = true) %}
+  {% if messages %}
+  {% for category,message in messages %}
+  <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+     <strong>{{ message }}</strong> 
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+     </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<div>
+<main role="main" class="col-lg-12 ml-auto mr-auto">
+<div  class="content mr-auto ml-auto">
+   <br /><br />
+   <form action="/sendPost" method = "POST" id="PostInputForm">
+         <div class="form-group mr-sm-2">
+         <input name = "userpost" placeholder="Whats on your mind..." id="userpost" type="text" required />
+        <br />
+        <br />
+        <input type="file" id="InputFile" name="InputFile" />
+        <br />
+        <br />
+        
+      
+      <button type="submit" class="btn btn-primary btn-block">Share</button>
+   </form>
+</div>
+
+</main>
+
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="mt-3 left">
+        	{%for post in posts%}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h6 class="card-title">{{ post[3] }}</h6>
+                    <p class="card-text text-muted h2">{{ post[1] }}</p>
+                    {% if post[4] %}
+                    <img style="width: 800px; height: 500px;" src="https://ipfs.io/ipfs/{{ post[4] }}" class="center">
+                    {% endif %}
+                    <p class="card-text">{{ post[2]/10000000000000000000 }} ETH</p>
+                     <form action="/tip" method = "POST" id="TipForm">
+                        <input type="hidden" name="userid" value= {{ post[0] }} id="userid" />
+                        <button type="submit" class="btn btn-primary btn-block">0.1 ETH</button>
+                    </form>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{% endblock %}
