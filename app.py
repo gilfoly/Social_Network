@@ -42,6 +42,7 @@ def uploadPost():
 		if request.method == 'POST':
 			userpost = request.form['userpost']
 			userImage = request.form['InputFile']
+			print(userImage)
 			if userImage:
 				ipfsHash = addFile(userImage)['Hash']
 			else:
@@ -51,7 +52,8 @@ def uploadPost():
 			flash('Post uploaded sussesfully !','success')
 
 			return redirect(url_for('posts'))
-	except Exception:
+	except Exception as e:
+		print(e)
 		flash('Post was not uploaded','danger')
 		return redirect(url_for('posts'))
 
