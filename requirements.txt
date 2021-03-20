@@ -30,7 +30,7 @@ InvoiceGenerator==1.1.0
 ipfs-api==0.2.3
 ipfshttpclient==0.6.1
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 jmespath==0.10.0
 jsonschema==3.2.0
 lru-dict==1.1.6
