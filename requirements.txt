@@ -57,7 +57,7 @@ s3transfer==0.3.3
 six==1.15.0
 sqlparse==0.3.1
 toolz==0.10.0
-urllib3==1.25.10
+urllib3==1.26.5
 varint==1.0.2
 web3==5.12.1
 webencodings==0.5.1
