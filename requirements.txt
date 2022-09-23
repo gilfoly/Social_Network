@@ -40,7 +40,7 @@ netaddr==0.8.0
 parsimonious==0.8.1
 pdfkit==0.6.1
 Pillow==7.2.0
-protobuf==3.13.0
+protobuf==3.18.3
 psycopg2-binary==2.8.5
 pycryptodome==3.9.8
 PyPDF2==1.26.0
